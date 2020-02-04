@@ -12,6 +12,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.Normalizer;
 
 @WebServlet(name = "DownloadServlet", urlPatterns = "/download")
 public class DownloadServlet extends HttpServlet {
@@ -21,8 +22,7 @@ public class DownloadServlet extends HttpServlet {
 
         EmojiWebApi service = new EmojiWebApiService().getEmojiWebApiPort();
         byte[] icon = service.findById(id).getIcon();
-        String fileName = service.findById(id).getName().replaceAll(" ", "_").toLowerCase().concat(".png");
-        fileName.replaceAll("[^\\p{ASCII}]", "");
+        String fileName = Normalizer.normalize(service.findById(id).getName().replaceAll(" ", "_").toLowerCase().concat(".png"), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
 
         InputStream inputStream = new ByteArrayInputStream(icon);
         int fileLength = inputStream.available();
