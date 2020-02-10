@@ -44,11 +44,7 @@
 
 <script type="text/javascript">
     function success() {
-        if (document.getElementById('nameInput').value == '' || document.getElementById('descriptionTextArea').value == '' || document.getElementById('inputGroupFile01').value == '') {
-            document.getElementById('submit').disabled = true;
-        } else {
-            document.getElementById('submit').disabled = false;
-        }
+        document.getElementById('submit').disabled = document.getElementById('nameInput').value === '' || document.getElementById('descriptionTextArea').value === '' || document.getElementById('inputGroupFile01').value === '';
     }
 
     $('#inputGroupFile01').on('change', function () {

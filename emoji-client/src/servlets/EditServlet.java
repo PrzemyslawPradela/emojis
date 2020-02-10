@@ -1,29 +1,29 @@
 package servlets;
 
+import com.google.gson.Gson;
 import ws.client.Emoji;
 import ws.client.EmojiWebApi;
 import ws.client.EmojiWebApiService;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditServlet", urlPatterns = "/edit")
+@WebServlet(name = "EditServlet", urlPatterns = "/emoji")
 public class EditServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String sid = request.getParameter("id");
         int id = Integer.parseInt(sid);
 
         EmojiWebApi service = new EmojiWebApiService().getEmojiWebApiPort();
         Emoji emoji = service.findById(id);
 
-        request.setAttribute("emoji", emoji);
+        String json = new Gson().toJson(emoji);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/edit.jsp");
-        dispatcher.forward(request, response);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json);
     }
 }
