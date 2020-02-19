@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dodaj emotikonę</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery/jquery-3.4.1.min.js"></script>
+        <script src="bootstrap/js/bootstrap.bundle.js"></script>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="fontawesome/css/all.min.css" rel="stylesheet">
+
+        <script>
+            $(window).on("load", function () {
+                $("#header").load("header.html");
+            });
+        </script>
+    </head>
+    <body>
+        <div id="header"></div>
+
+        <div class="container mt-5">
+            <form action="UploadServlet" enctype="multipart/form-data" method="post">
+                <label for="nameInput">Nazwa</label>
+                <input class="form-control mb-4" id="nameInput" maxlength="128" name="name" onkeyup="success()" type="text">
+                <label for="descriptionTextArea">Opis</label>
+                <textarea class="form-control rounded-0 mb-4" id="descriptionTextArea" maxlength="1024" name="description"
+                          onkeyup="success()" rows="4"></textarea>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Ikona</span>
+                    </div>
+                    <div class="custom-file">
+                        <input accept="image/*" aria-describedby="inputGroupFileAddon01" class="custom-file-input"
+                               id="inputGroupFile01" name="icon" onchange="success()" type="file">
+                        <label class="custom-file-label" for="inputGroupFile01">Wybierz ikonkę</label>
+                    </div>
+                </div>
+                <button class="btn btn-primary" disabled id="submit" type="submit">Dodaj</button>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            function success() {
+                document.getElementById('submit').disabled = document.getElementById('nameInput').value === '' || document.getElementById('descriptionTextArea').value === '' || document.getElementById('inputGroupFile01').value === '';
+            }
+
+            $('#inputGroupFile01').on('change', function () {
+                const fileName = $(this).val();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        </script>
+    </body>
+</html>
