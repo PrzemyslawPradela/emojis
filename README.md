@@ -4,7 +4,7 @@
 * [Setup](#setup)
 
 ## General info
-Web service with emojis
+Java EE Servlets based web client and Java EE SOAP Web Service with emojis
 
 ## Technologies
 Project is created with:
