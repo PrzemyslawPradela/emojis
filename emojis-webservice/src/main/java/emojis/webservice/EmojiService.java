@@ -13,8 +13,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 
-@WebService(serviceName = "EmojisService")
-public class EmojisService {
+@WebService(serviceName = "EmojiService")
+public class EmojiService {
 
     /**
      * Web service operation

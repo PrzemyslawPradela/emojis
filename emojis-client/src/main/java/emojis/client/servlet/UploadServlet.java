@@ -1,8 +1,8 @@
 package emojis.client.servlet;
 
 import emojis.client.Emoji;
-import emojis.client.EmojisService;
-import emojis.client.EmojisService_Service;
+import emojis.client.EmojiService;
+import emojis.client.EmojiService_Service;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.servlet.ServletException;
@@ -19,8 +19,8 @@ import org.apache.commons.io.IOUtils;
 @MultipartConfig
 public class UploadServlet extends HttpServlet {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojisService.wsdl")
-    private EmojisService_Service service;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojiService.wsdl")
+    private EmojiService_Service service;
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -34,7 +34,7 @@ public class UploadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try { // Call Web Service Operation
-            EmojisService port = service.getEmojisServicePort();
+            EmojiService port = service.getEmojiServicePort();
             request.setCharacterEncoding("UTF-8");
             String name = request.getParameter("name");
             String description = request.getParameter("description");

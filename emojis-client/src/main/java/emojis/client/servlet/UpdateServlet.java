@@ -2,8 +2,8 @@ package emojis.client.servlet;
 
 import com.google.gson.Gson;
 import emojis.client.Emoji;
-import emojis.client.EmojisService;
-import emojis.client.EmojisService_Service;
+import emojis.client.EmojiService;
+import emojis.client.EmojiService_Service;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.servlet.ServletException;
@@ -20,8 +20,8 @@ import org.apache.commons.io.IOUtils;
 @MultipartConfig
 public class UpdateServlet extends HttpServlet {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojisService.wsdl")
-    private EmojisService_Service service;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojiService.wsdl")
+    private EmojiService_Service service;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -35,7 +35,7 @@ public class UpdateServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try { // Call Web Service Operation
-            EmojisService port = service.getEmojisServicePort();
+            EmojiService port = service.getEmojiServicePort();
             String emojiIdString = request.getParameter("id");
             int emojiId = Integer.parseInt(emojiIdString);
             Emoji emoji = port.getEmojiById(emojiId);
@@ -61,7 +61,7 @@ public class UpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try { // Call Web Service Operation
-            EmojisService port = service.getEmojisServicePort();
+            EmojiService port = service.getEmojiServicePort();
             request.setCharacterEncoding("UTF-8");
             String emojiIdString = request.getParameter("id");
             int emojiId = Integer.parseInt(emojiIdString);

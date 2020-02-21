@@ -2,8 +2,8 @@ package emojis.client.servlet;
 
 import com.google.gson.Gson;
 import emojis.client.Emoji;
-import emojis.client.EmojisService;
-import emojis.client.EmojisService_Service;
+import emojis.client.EmojiService;
+import emojis.client.EmojiService_Service;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -16,8 +16,8 @@ import javax.xml.ws.WebServiceRef;
 @WebServlet(name = "IndexServlet", urlPatterns = {"/IndexServlet"})
 public class IndexServlet extends HttpServlet {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojisService.wsdl")
-    private EmojisService_Service service;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojiService.wsdl")
+    private EmojiService_Service service;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -31,7 +31,7 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try { // Call Web Service Operation
-            EmojisService port = service.getEmojisServicePort();
+            EmojiService port = service.getEmojiServicePort();
             List<Emoji> result = port.getEmojis();
             String json = new Gson().toJson(result);
             response.setContentType("aplication/json;charset=UTF-8");

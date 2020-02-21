@@ -110,16 +110,16 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>localhost_8080/services/EmojisService.wsdl</wsdlFile>
+                                <wsdlFile>localhost_8080/services/EmojiService.wsdl</wsdlFile>
                             </wsdlFiles>
                             <packageName>emojis.client</packageName>
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://localhost:8080/services/EmojisService?wsdl</wsdlLocation>
-                            <staleFile>${project.build.directory}/jaxws/stale/EmojisService.stale</staleFile>
+                            <wsdlLocation>http://localhost:8080/services/EmojiService?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/EmojiService.stale</staleFile>
                         </configuration>
-                        <id>wsimport-generate-EmojisService</id>
+                        <id>wsimport-generate-EmojiService</id>
                         <phase>generate-sources</phase>
                     </execution>
                 </executions>

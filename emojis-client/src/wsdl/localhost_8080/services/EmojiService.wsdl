@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice.emojis/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="EmojisService" targetNamespace="http://webservice.emojis/">
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice.emojis/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="EmojiService" targetNamespace="http://webservice.emojis/">
   <wsdl:types>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservice.emojis/" elementFormDefault="unqualified" targetNamespace="http://webservice.emojis/" version="1.0">
 
@@ -98,7 +98,7 @@
     <wsdl:part element="tns:addEmoji" name="parameters">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:portType name="EmojisService">
+  <wsdl:portType name="EmojiService">
     <wsdl:operation name="removeEmojiById">
       <wsdl:input message="tns:removeEmojiById" name="removeEmojiById">
     </wsdl:input>
@@ -124,7 +124,7 @@
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="EmojisServiceSoapBinding" type="tns:EmojisService">
+  <wsdl:binding name="EmojiServiceSoapBinding" type="tns:EmojiService">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="removeEmojiById">
       <soap:operation soapAction="" style="document"/>
@@ -163,9 +163,9 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="EmojisService">
-    <wsdl:port binding="tns:EmojisServiceSoapBinding" name="EmojisServicePort">
-      <soap:address location="http://localhost:8080/services/EmojisService"/>
+  <wsdl:service name="EmojiService">
+    <wsdl:port binding="tns:EmojiServiceSoapBinding" name="EmojiServicePort">
+      <soap:address location="http://localhost:8080/services/EmojiService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

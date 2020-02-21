@@ -1,7 +1,7 @@
 package emojis.client.servlet;
 
-import emojis.client.EmojisService;
-import emojis.client.EmojisService_Service;
+import emojis.client.EmojiService;
+import emojis.client.EmojiService_Service;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +13,8 @@ import javax.xml.ws.WebServiceRef;
 @WebServlet(name = "DeleteServlet", urlPatterns = {"/DeleteServlet"})
 public class DeleteServlet extends HttpServlet {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojisService.wsdl")
-    private EmojisService_Service service;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojiService.wsdl")
+    private EmojiService_Service service;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,7 +29,7 @@ public class DeleteServlet extends HttpServlet {
             throws ServletException, IOException {
         try { // Call Web Service Operation
             String emojString = request.getParameter("id");
-            EmojisService port = service.getEmojisServicePort();
+            EmojiService port = service.getEmojiServicePort();
             int emojiId = Integer.parseInt(emojString);
             port.removeEmojiById(emojiId);
             response.sendRedirect("index.html");

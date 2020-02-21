@@ -1,8 +1,8 @@
 package emojis.client.servlet;
 
 import emojis.client.Emoji;
-import emojis.client.EmojisService;
-import emojis.client.EmojisService_Service;
+import emojis.client.EmojiService;
+import emojis.client.EmojiService_Service;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,8 +19,8 @@ import javax.xml.ws.WebServiceRef;
 @WebServlet(name = "DownloadServlet", urlPatterns = {"/DownloadServlet"})
 public class DownloadServlet extends HttpServlet {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojisService.wsdl")
-    private EmojisService_Service service;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/services/EmojiService.wsdl")
+    private EmojiService_Service service;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -34,7 +34,7 @@ public class DownloadServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try { // Call Web Service Operation
-            EmojisService port = service.getEmojisServicePort();
+            EmojiService port = service.getEmojiServicePort();
             String emojiIdString = request.getParameter("id");
             int emojiId = Integer.parseInt(emojiIdString);
             Emoji result = port.getEmojiById(emojiId);
