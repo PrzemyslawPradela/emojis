@@ -29,7 +29,7 @@ Project is created with:
 5. [Add WideFly Application Server to NetBeans](http://www.mastertheboss.com/eclipse/jboss-netbeans/configuring-netbeans-with-wildfly)
 6. Clone this repository
 7. Download Apache Derby 10.14.2 (lib package) and [configure JavaDB in NetBeans](https://web.csulb.edu/~mopkins/cecs323/netbeans.shtml)  
-*in Database Location*: **_../emojis/derby_**
+in *Database Location*: **_../emojis/derby_**
 8. Open *emojis-webservice* and *emojis-client* in NetBeans
 9. Build and deploy *emojis-webservice*
 10. Build and deploy *emojis-client*
