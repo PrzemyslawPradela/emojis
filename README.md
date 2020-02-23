@@ -13,24 +13,24 @@ Project is created with:
 * Hibernate version: 5.4.12
 * Gson vesrion: 2.8.6
 * Apache Commons IO version: 2.2
+* Apache HttpComponents version: 4.5.11
 * Apache Derby version: 10.14.2
 * Maven version: 3.3.9
 * jQuery version: 3.4.1
 * Bootstrap version: 4.3.1
 * Font Awesome version: 5.12.1
-* WideFly Application Server version: 18.0.1
+* Payara Server version: 5.193
 * Apache NetBeans version: 11.2
 
 ## Setup
 1. Install Java 8 Development Kit
 2. Download and install Apache NetBeans 11.2
-3. Download WideFly Application Server 18.0.1
-4. Download and install [WideFly Plugin for NetBeans](http://plugins.netbeans.org/plugin/76472/wildfly-application-server)
-5. [Add WideFly Application Server to NetBeans](http://www.mastertheboss.com/eclipse/jboss-netbeans/configuring-netbeans-with-wildfly)
-6. Clone this repository
-7. Download Apache Derby 10.14.2 (lib package) and [configure JavaDB in NetBeans](https://web.csulb.edu/~mopkins/cecs323/netbeans.shtml)  
-in *Database Location*: **_../emojis/derby_**
-8. Open *emojis-webservice* and *emojis-client* in NetBeans
-9. Build and deploy *emojis-webservice*
-10. Build and deploy *emojis-client*
-11. Open *emojis-client* in a web browser on *http://localhost:8080/emojis/*
+3. [Add Payara Server to NetBeans](https://blog.payara.fish/adding-payara-server-to-netbeans)
+4. Clone this repository
+5. [Configure JavaDB in NetBeans](https://web.csulb.edu/~mopkins/cecs323/netbeans.shtml)  
+in *Java DB Installation*: **_Payara_Server_location\javadb_**  
+in *Database Location*: **_..\emojis\derby_**
+6. Open *emojis* (select option *Open Required Projects*) in NetBeans
+7. Build *emojis*
+8. Deploy *emojis-ws*, *emojis-controller*, *emojis-web* 
+9. Open *emojis-web* in a web browser on *http://localhost:8080/emojis-web/*
