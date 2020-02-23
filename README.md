@@ -30,7 +30,8 @@ Project is created with:
 5. [Configure JavaDB in NetBeans](https://web.csulb.edu/~mopkins/cecs323/netbeans.shtml)  
 in *Java DB Installation*: **_Payara_Server_location\javadb_**  
 in *Database Location*: **_..\emojis\derby_**
-6. Open *emojis* (select option *Open Required Projects*) in NetBeans
-7. Build *emojis*
-8. Deploy *emojis-ws*, *emojis-controller*, *emojis-web* 
-9. Open *emojis-web* in a web browser on *http://localhost:8080/emojis-web/*
+6. Start Java DB server
+7. Open *emojis* (select option *Open Required Projects*) in NetBeans
+8. Build *emojis*
+9. Deploy *emojis-ws*, *emojis-controller*, *emojis-web* 
+10. Open *emojis-web* in a web browser on *http://localhost:8080/emojis-web/*
