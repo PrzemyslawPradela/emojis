@@ -6,6 +6,7 @@ import emojis.ws.client.EmojiService;
 import emojis.ws.client.EmojiWebService;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -62,17 +63,21 @@ public class UpdateEmojiServlet extends HttpServlet {
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         Part filePart = request.getPart("icon");
-        if (!name.isEmpty() || !name.equals(emoji.getName())) {
+        if (!name.isEmpty() && !name.equals(emoji.getName())) {
             emoji.setName(name);
             port.updateEmoji(emoji);
-        } else if (!description.isEmpty()) {
+        }
+        if (!description.isEmpty() && !description.equals(emoji.getDescription())) {
             emoji.setDescription(description);
             port.updateEmoji(emoji);
-        } else if (filePart != null) {
+        }
+        if (filePart != null) {
             InputStream fileContent = filePart.getInputStream();
             byte[] icon = IOUtils.toByteArray(fileContent);
-            emoji.setIcon(icon);
-            port.updateEmoji(emoji);
+            if (!Arrays.equals(icon, emoji.getIcon())) {
+                emoji.setIcon(icon);
+                port.updateEmoji(emoji);
+            }
         }
     }
 
