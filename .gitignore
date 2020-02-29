@@ -24,3 +24,4 @@ hs_err_pid*
 /emojis-ws/target/
 /emojis-web/target/
 /emojis-controller/target/
+/emojis-ear/target/

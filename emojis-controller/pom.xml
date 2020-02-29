@@ -118,13 +118,13 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>localhost_8080/emojis-ws/EmojiService.wsdl</wsdlFile>
+                                <wsdlFile>localhost_8080/emojis-soap/EmojiService.wsdl</wsdlFile>
                             </wsdlFiles>
-                            <packageName>emojis.ws.client</packageName>
+                            <packageName>emojis.controller.soap.client</packageName>
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://localhost:8080/emojis-ws/EmojiService?wsdl</wsdlLocation>
+                            <wsdlLocation>http://localhost:8080/emojis-soap/EmojiService?wsdl</wsdlLocation>
                             <staleFile>${project.build.directory}/jaxws/stale/EmojiService.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-EmojiService</id>

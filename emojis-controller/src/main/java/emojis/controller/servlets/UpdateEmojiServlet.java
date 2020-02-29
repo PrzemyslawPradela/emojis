@@ -1,9 +1,9 @@
 package emojis.controller.servlets;
 
 import com.google.gson.Gson;
-import emojis.ws.client.Emoji;
-import emojis.ws.client.EmojiService;
-import emojis.ws.client.EmojiWebService;
+import emojis.controller.soap.client.Emoji;
+import emojis.controller.soap.client.EmojiService;
+import emojis.controller.soap.client.EmojiWebService;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -21,7 +21,7 @@ import org.apache.commons.io.IOUtils;
 @MultipartConfig
 public class UpdateEmojiServlet extends HttpServlet {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/emojis-ws/EmojiService.wsdl")
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/emojis-soap/EmojiService?wsdl")
     private EmojiService service;
 
     /**

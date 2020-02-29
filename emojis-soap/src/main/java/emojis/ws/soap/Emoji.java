@@ -1,4 +1,4 @@
-package emojis.ws.entities;
+package emojis.ws.soap;
 
 import java.io.Serializable;
 import javax.persistence.Basic;

@@ -33,5 +33,5 @@ in *Database Location*: **_..\emojis\derby_**
 6. Start Java DB server
 7. Open *emojis* (select option *Open Required Projects*) in NetBeans
 8. Build *emojis*
-9. Deploy *emojis-ws*, *emojis-controller*, *emojis-web* 
+9. Deploy *emojis-ear* 
 10. Open *emojis-web* in a web browser on *http://localhost:8080/emojis-web/*
