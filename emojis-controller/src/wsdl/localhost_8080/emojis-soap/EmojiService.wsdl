@@ -4,17 +4,14 @@
 <xsd:import namespace="http://soap.emojis/" schemaLocation="http://localhost:8080/emojis-soap/EmojiService?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="removeEmojiById">
+<part name="parameters" element="tns:removeEmojiById"/>
+</message>
 <message name="getEmojis">
 <part name="parameters" element="tns:getEmojis"/>
 </message>
 <message name="getEmojisResponse">
 <part name="parameters" element="tns:getEmojisResponse"/>
-</message>
-<message name="addEmoji">
-<part name="parameters" element="tns:addEmoji"/>
-</message>
-<message name="removeEmojiById">
-<part name="parameters" element="tns:removeEmojiById"/>
 </message>
 <message name="getEmojiById">
 <part name="parameters" element="tns:getEmojiById"/>
@@ -25,16 +22,16 @@
 <message name="updateEmoji">
 <part name="parameters" element="tns:updateEmoji"/>
 </message>
+<message name="addEmoji">
+<part name="parameters" element="tns:addEmoji"/>
+</message>
 <portType name="EmojiWebService">
+<operation name="removeEmojiById">
+<input wsam:Action="http://soap.emojis/EmojiWebService/removeEmojiById" message="tns:removeEmojiById"/>
+</operation>
 <operation name="getEmojis">
 <input wsam:Action="http://soap.emojis/EmojiWebService/getEmojisRequest" message="tns:getEmojis"/>
 <output wsam:Action="http://soap.emojis/EmojiWebService/getEmojisResponse" message="tns:getEmojisResponse"/>
-</operation>
-<operation name="addEmoji">
-<input wsam:Action="http://soap.emojis/EmojiWebService/addEmoji" message="tns:addEmoji"/>
-</operation>
-<operation name="removeEmojiById">
-<input wsam:Action="http://soap.emojis/EmojiWebService/removeEmojiById" message="tns:removeEmojiById"/>
 </operation>
 <operation name="getEmojiById">
 <input wsam:Action="http://soap.emojis/EmojiWebService/getEmojiByIdRequest" message="tns:getEmojiById"/>
@@ -43,9 +40,18 @@
 <operation name="updateEmoji">
 <input wsam:Action="http://soap.emojis/EmojiWebService/updateEmoji" message="tns:updateEmoji"/>
 </operation>
+<operation name="addEmoji">
+<input wsam:Action="http://soap.emojis/EmojiWebService/addEmoji" message="tns:addEmoji"/>
+</operation>
 </portType>
 <binding name="EmojiWebServicePortBinding" type="tns:EmojiWebService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="removeEmojiById">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
 <operation name="getEmojis">
 <soap:operation soapAction=""/>
 <input>
@@ -54,18 +60,6 @@
 <output>
 <soap:body use="literal"/>
 </output>
-</operation>
-<operation name="addEmoji">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
-<operation name="removeEmojiById">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
 </operation>
 <operation name="getEmojiById">
 <soap:operation soapAction=""/>
@@ -77,6 +71,12 @@
 </output>
 </operation>
 <operation name="updateEmoji">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="addEmoji">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

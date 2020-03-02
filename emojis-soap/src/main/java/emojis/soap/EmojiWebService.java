@@ -1,6 +1,6 @@
 package emojis.soap;
 
-import emojis.ws.soap.Emoji;
+import emojis.soap.entities.Emoji;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
