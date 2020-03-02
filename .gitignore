@@ -21,7 +21,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/emojis-ws/target/
+/emojis-soap/target/
 /emojis-web/target/
 /emojis-controller/target/
 /emojis-ear/target/
